@@ -1,13 +1,6 @@
 # encoding : utf8
 """View: this part focuses on the display."""
-from tkinter import Label
-from tkinter import Button
-from tkinter import Entry
-from tkinter import Listbox
-from tkinter import Tk
-from tkinter import END
-
-from tkinter import messagebox
+from tkinter import Label, Button, Entry, Listbox, Tk, END, messagebox
 
 class Application(Tk):
     """Class of the interface"""
@@ -28,7 +21,7 @@ class Application(Tk):
         The method also creates a dictionary of entries with the keys taken from the attributes.
         """
         self.label = Label(self, text="Animal list manipulation!", font='Arial 20 bold')
-        self.label1 = Label(self, text="")
+        self.label1 = Label(self, text="", font='Arial 15 bold')
         self.label_search = Label(self, text="Research")
         #all buttons
         self.bouton_display = Button(self, text="Display", command=self.display_something)
@@ -94,6 +87,7 @@ class Application(Tk):
             #if the name of the animal is not present, it adds the new animal and its attributes
             self.controller.add_animal(dict_animal)
             self.listebox.insert(END, dict_animal["name"])
+            self.only_names.sort()
             messagebox.showinfo(title ="Added", message ="The animal has been added")
         for key in self.entries: #empty the fields
             self.entries[key].delete(0, END)
