@@ -10,9 +10,9 @@ from tkinter import END
 from tkinter import messagebox
 
 class Application(Tk):
-    """Class of the interface""" 
+    """Class of the interface"""
     def __init__(self, controller):
-        """The Application class has a constructor "init" which takes a 
+        """The Application class has a constructor "init" which takes a
         "controller" object as an argument"""
         Tk.__init__(self)
         self.controller = controller
@@ -23,16 +23,18 @@ class Application(Tk):
 
     def creer_widgets(self):
         """Creates the widgets for the GUI interface.
-        It creates several labels, buttons, and entries using the tkinter widgets Label, Button, and Entry.
+        It creates several labels, buttons, and entries using
+        the tkinter widgets Label, Button, and Entry.
         The method also creates a dictionary of entries with the keys taken from the attributes.
-        """        
+        """
         self.label = Label(self, text="Animal list manipulation!", font='Arial 20 bold')
         self.label1 = Label(self, text="")
         self.label_search = Label(self, text="Research")
         #all buttons
         self.bouton_display = Button(self, text="Display", command=self.display_something)
         self.bouton = Button(self, text="Quit", command=self.quit_window)
-        self.bouton_add_animal = Button(self, text="Add/Save modification", command=self.add_modif_animal)
+        self.bouton_add_animal = Button(self, text="Add/Save modification",
+                                        command=self.add_modif_animal)
         self.button_del = Button(self, text="Delete", command=self.delete_animal)
         self.button_modify = Button(self, text="Modify", command=self.info_animal)
         #creates a dictionary of entries with the keys taken from the attributes
@@ -73,7 +75,6 @@ class Application(Tk):
 
     def display_something(self):
         """The method is called when the user clicks the Quit button"""
-        self.controller.quit_window() #sets the controller to call the "quit_window" method
         self.controller.display(self.search.get())
 
     def display_label(self, value):
@@ -94,7 +95,7 @@ class Application(Tk):
             self.controller.add_animal(dict_animal)
             self.listebox.insert(END, dict_animal["name"])
             messagebox.showinfo(title ="Added", message ="The animal has been added")
-        for key in self.entries: #empty the fields 
+        for key in self.entries: #empty the fields
             self.entries[key].delete(0, END)
 
     def delete_animal(self):
@@ -108,7 +109,7 @@ class Application(Tk):
         messagebox.showinfo(title = "Deleted", message ="The animal has been deleted")
 
     def info_animal(self):
-        """Method to have the attributes of the animals in order to display 
+        """Method to have the attributes of the animals in order to display
         them on the input fields when the user wants to modify them"""
         for key in self.entries:
             self.entries[key].delete(0, END) #empty the fields
@@ -118,7 +119,8 @@ class Application(Tk):
         for i in range(0,nb_entries):
             #inserts the attributes of the animal on the corresponding input fields
             self.entries[self.attributes[i]].insert(0,info[i])
-        messagebox.showinfo(title = "Modification", message ="modify the characteristics of the animal then press the Add/Save modification button")
+        messagebox.showinfo(title = "Modification",
+                            message ="modify the characteristics of the animal then press the Add/Save modification button")
 
     def view_window(self):
         """The "view_window" method sets the title of the GUI window and
