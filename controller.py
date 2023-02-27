@@ -13,14 +13,14 @@ class Controller() :
         """
         self.model = Model("a.txt")
         self.model.read_file() #creation of a dictionary that contains the animals of "a.txt"
-        #The self argument is passed to the Application constructor to establish a reference between the Controller and Application objects
+        #The self argument to establish a reference between the Controller and Application objects
         self.view = Application(self)
         self.view.view_window() #to display the user interface
 
     def display(self, value): #the string value as an argument represents an animal name
         """Retrieves the corresponding animal information from the Model object's dictionary
         """
-        #it passes the information to the display_label method of the Application object to update the interface
+        #it passes the information to the display_label method to update the interface
         self.view.display_label(self.model.dico_animaux[value])
 
     def add_animal(self, dict_animal):
@@ -51,7 +51,7 @@ class Controller() :
         """This method prints "close app" to the console,
         calls the close method of the Model object to close the file,
         and destroys the view object (the GUI window) using the destroy method of the Tk class
-        """        
+        """
         print("close app")
         self.model.close() #close the file
         self.view.destroy() #destruction of the window
