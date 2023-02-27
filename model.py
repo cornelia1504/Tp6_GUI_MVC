@@ -22,6 +22,7 @@ class Model():
             a = Animal(tab[0],tab[1],tab[2],tab[3],tab[4])
             self.dico_animaux[a.name] = a #key = animal's name, value = all the attributs
             self.only_names.append(a.name) #list containing only the names of the animals
+            self.only_names.sort()
 
     def save(self, dict_animal):
         """writes a new line to the file using the values in the dictionary"""
