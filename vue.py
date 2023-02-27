@@ -111,7 +111,7 @@ class Application(Tk):
         for i in range(0,nb_entries):
             #inserts the attributes of the animal on the corresponding input fields
             self.entries[self.attributes[i]].insert(0,info[i])
-        messagebox.showinfo(title = "Deleted", message ="The animal has been deleted")
+        messagebox.showinfo(title = "Modification", message ="modify the characteristics of the animal then press the add/save modification button")
 
 
     def view_window(self):
