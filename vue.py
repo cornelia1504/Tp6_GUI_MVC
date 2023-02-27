@@ -1,12 +1,19 @@
 # encoding : utf8
 """View: this part focuses on the display."""
-from tkinter import *
+from tkinter import Label
+from tkinter import Button
+from tkinter import Entry
+from tkinter import Listbox
+from tkinter import Tk
+from tkinter import END
+
 from tkinter import messagebox
 
 class Application(Tk):
-    """Class of the interface"""    
+    """Class of the interface""" 
     def __init__(self, controller):
-        """The Application class has a constructor "init" which takes a "controller" object as an argument"""
+        """The Application class has a constructor "init" which takes a 
+        "controller" object as an argument"""
         Tk.__init__(self)
         self.controller = controller
         #gets the model entries from the controller object using the method
@@ -19,7 +26,7 @@ class Application(Tk):
         It creates several labels, buttons, and entries using the tkinter widgets Label, Button, and Entry.
         The method also creates a dictionary of entries with the keys taken from the attributes.
         """        
-        self.label = Label(self, text="Animal list manipulation!")
+        self.label = Label(self, text="Animal list manipulation!", font='Arial 20 bold')
         self.label1 = Label(self, text="")
         self.label_search = Label(self, text="Research")
         #all buttons
@@ -111,8 +118,7 @@ class Application(Tk):
         for i in range(0,nb_entries):
             #inserts the attributes of the animal on the corresponding input fields
             self.entries[self.attributes[i]].insert(0,info[i])
-        messagebox.showinfo(title = "Modification", message ="modify the characteristics of the animal then press the add/save modification button")
-
+        messagebox.showinfo(title = "Modification", message ="modify the characteristics of the animal then press the Add/Save modification button")
 
     def view_window(self):
         """The "view_window" method sets the title of the GUI window and
