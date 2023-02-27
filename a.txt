@@ -1,0 +1,6 @@
+Human,22,omnivore,2,Rochelle
+Human,21,omnivore,2,Audrey
+Cat,2,omnivore,2,Art
+cat,2,omnivore,2,Mi
+Human,25.5,omnivore,2,Mohamed
+cat,2,omnivore,2,Mini
